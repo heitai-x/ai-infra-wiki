@@ -1,0 +1,4 @@
+{"prompt":"Explain why LLM decode is often memory-bound in three concise bullet points."}
+{"prompt":"Compare FSDP and ZeRO-3 for a 70B model training setup."}
+{"prompt":"List the first five checks for an NCCL all-reduce timeout."}
+{"prompt":"Describe how paged KV cache improves serving capacity."}

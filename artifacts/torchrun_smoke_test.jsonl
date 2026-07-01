@@ -1,0 +1,2 @@
+{"step": 0, "loss": 8.47883415222168, "step_time_ms": 14.40308429300785, "max_memory_allocated_mb": 379.52880859375, "max_memory_reserved_mb": 410.0}
+{"step": 1, "loss": 8.479598999023438, "step_time_ms": 9.139984846115112, "max_memory_allocated_mb": 379.52880859375, "max_memory_reserved_mb": 410.0}

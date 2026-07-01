@@ -1,0 +1,84 @@
+wiki_name: AI Infra LLM Wiki
+version: 1
+last_updated: 2026-06-13
+root: ai-infra-wiki
+required_front_matter:
+  - title
+  - type
+  - topic
+  - level
+  - status
+  - last_updated
+  - owner
+  - reliability
+allowed_types:
+  - concept
+  - source
+  - playbook
+  - experiment
+  - index
+  - roadmap
+  - workflow
+  - template
+  - entity
+  - eval-set
+  - hub
+allowed_levels:
+  - beginner
+  - intermediate
+  - advanced
+  - all
+allowed_statuses:
+  - draft
+  - active
+  - stale
+  - archived
+allowed_reliability:
+  - high
+  - medium
+  - low
+allowed_source_types:
+  - official_doc
+  - paper
+  - code
+  - internal_runbook
+  - experiment
+  - curated
+source_required_front_matter:
+  - source_type
+  - source_url
+  - last_checked
+allowed_orphan_pages:
+  - README.md
+ignore_globs:
+  - "**/.ipynb_checkpoints/**"
+  - "**/.obsidian/**"
+raw_sources_root: ../raw-sources
+operation_log: 00-index/log.md
+coverage_audit: 99-maintenance/content-coverage-audit.md
+retrieval:
+  current:
+    primary: keyword
+    materialized_index: sqlite_fts5
+    ranking: bm25
+    database: wiki-index/ai_infra_wiki.sqlite
+    build_command: python3 scripts/build_wiki_index.py --wiki-root ai-infra-wiki --db wiki-index/ai_infra_wiki.sqlite
+    search_command: python3 scripts/search_wiki.py "KV cache" --filter topic=inference
+  planned:
+    hybrid_search: true
+    semantic_vector_index: future
+    rerank: future
+  metadata_filters:
+    - type
+    - topic
+    - component
+    - level
+    - status
+    - reliability
+    - source_type
+maintenance:
+  lint_command: python3 scripts/lint_wiki.py ai-infra-wiki
+  index_build_command: python3 scripts/build_wiki_index.py --wiki-root ai-infra-wiki --db wiki-index/ai_infra_wiki.sqlite
+  index_check_command: python3 scripts/check_wiki_index.py --wiki-root ai-infra-wiki --db wiki-index/ai_infra_wiki.sqlite
+  question_bank: ai-infra-wiki/00-index/question-bank.md
+  source_index: ai-infra-wiki/00-index/source-index.md
