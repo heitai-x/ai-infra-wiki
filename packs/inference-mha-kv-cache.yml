@@ -1,0 +1,31 @@
+bundle_id: inference.mha-kv-cache
+version: 1
+title: MHA and KV Cache
+topic: inference
+goal: Understand attention shapes, decode-time KV cache, and the memory/performance connection.
+
+stages:
+  bootstrap:
+    - ai-infra-wiki/00-index/START-HERE.md
+    - ai-infra-wiki/01-roadmap/competency-matrix.md
+  map:
+    - ai-infra-wiki/30-inference-systems/llm-serving-map.md
+    - ai-infra-wiki/10-foundations/gpu-system-map.md
+  core:
+    - ai-infra-wiki/10-foundations/model-architecture-cost-formulas.md
+    - ai-infra-wiki/30-inference-systems/kv-cache-paged-attention.md
+    - ai-infra-wiki/30-inference-systems/batching-scheduling.md
+  practice:
+    - ai-infra-wiki/90-experiments/llm-serving-benchmark.md
+    - ai-infra-wiki/90-experiments/vllm-sglang-benchmark-harness.md
+    - ai-infra-wiki/80-playbooks/benchmark-design.md
+  deep_dive:
+    - ai-infra-wiki/70-sources/key-papers/transformer-architecture-papers.md
+    - ai-infra-wiki/70-sources/key-papers/pagedattention-paper.md
+    - ai-infra-wiki/60-frameworks/vllm-sglang.md
+  verify:
+    - ai-infra-wiki/00-index/question-bank.md
+    - checklists/inference-mha-kv-cache.yml
+
+checklist: checklists/inference-mha-kv-cache.yml
+checkpoint_template: checkpoints/template.yml

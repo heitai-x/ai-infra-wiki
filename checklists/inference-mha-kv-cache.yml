@@ -1,0 +1,55 @@
+checklist_id: inference.mha-kv-cache
+version: 1
+title: MHA and KV Cache Learning Checklist
+bundle: inference.mha-kv-cache
+
+items:
+  - id: qkv-shape
+    criterion: Explain Q, K and V shapes for batch, heads, sequence and head dimension.
+    status: todo
+    evidence: []
+
+  - id: attention-score
+    criterion: Explain the scaled QK-transpose calculation and its score tensor shape.
+    status: todo
+    evidence: []
+
+  - id: causal-mask
+    criterion: Implement a causal mask and verify that future positions do not contribute.
+    status: todo
+    evidence: []
+
+  - id: safe-softmax
+    criterion: Verify that masked softmax remains finite and fully masked rows produce zero.
+    status: todo
+    evidence: []
+
+  - id: prefill-decode
+    criterion: Explain the difference between prefill and decode query/key lengths.
+    status: todo
+    evidence: []
+
+  - id: kv-memory
+    criterion: Calculate KV cache bytes for a concrete model, batch, sequence and dtype.
+    status: todo
+    evidence: []
+
+  - id: gqa
+    criterion: Explain how GQA changes KV heads and memory compared with MHA.
+    status: todo
+    evidence: []
+
+  - id: paged-cache
+    criterion: Explain logical token positions, physical KV pages and block management.
+    status: todo
+    evidence: []
+
+  - id: experiment
+    criterion: Record one reproducible experiment or code test with command and output.
+    status: todo
+    evidence: []
+
+  - id: teach-back
+    criterion: Explain the complete path from MHA code to serving latency and KV capacity.
+    status: todo
+    evidence: []

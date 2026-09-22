@@ -4,7 +4,7 @@ type: workflow
 topic: wiki
 level: all
 status: active
-last_updated: 2026-06-29
+last_updated: 2026-09-22
 owner: local
 reliability: high
 tags: [llm-wiki, architecture, obsidian, rag]
@@ -29,6 +29,7 @@ tags: [llm-wiki, architecture, obsidian, rag]
 3. Concepts：`10-*` 到 `50-*`，记录稳定概念、系统模型和学习路径。
 4. Sources：`70-sources/`，记录官方文档、论文、代码、内部资料的摘要和可信度。
 5. Practice：`80-playbooks/` 与 `90-experiments/`，记录排障流程和可复现实验。
+6. Context：通过 [[02-llm-wiki-workflow/progressive-loading]] 的 bundle 按学习目标渐进加载页面。
 
 ## 工作流
 

@@ -4,7 +4,7 @@ type: hub
 topic: ai-infra
 level: all
 status: active
-last_updated: 2026-06-29
+last_updated: 2026-09-22
 owner: local
 reliability: high
 tags: [ai-infra, training, inference, serving, rag, llm-wiki]

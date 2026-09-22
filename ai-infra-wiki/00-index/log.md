@@ -4,7 +4,7 @@ type: index
 topic: wiki
 level: all
 status: active
-last_updated: 2026-06-29
+last_updated: 2026-09-22
 owner: local
 reliability: high
 tags: [log, ingest, maintenance]
@@ -26,6 +26,15 @@ tags: [log, ingest, maintenance]
 - result: pass/fail
 - actions: ...
 ```
+
+## [2026-09-22] design | Agent-Agnostic Progressive Loading
+
+- Added `99-maintenance/current-repository-gaps.md` and `99-maintenance/optimization-plan.md`.
+- Added the first context bundle: `packs/inference-mha-kv-cache.yml`.
+- Added reusable learning and experiment prompts under `prompts/`.
+- Added tool capability metadata, learning checklist and study checkpoint template.
+- Added `scripts/load_bundle.py` and `scripts/check_learning.py`.
+- Fixed the inbound link for `00-index/raw-sources-index.md`.
 
 ## [2026-06-29] lint | Build Boundary Cleanup
 

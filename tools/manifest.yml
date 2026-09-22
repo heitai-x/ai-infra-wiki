@@ -1,0 +1,45 @@
+version: 1
+project: ai-infra-learning-substrate
+
+tools:
+  - id: wiki.search
+    command: python scripts/search_wiki.py "<query>"
+    purpose: Search the materialized SQLite FTS5/BM25 Wiki index.
+    side_effects: read_only
+    precondition: wiki-index/ai_infra_wiki.sqlite exists
+    output: ranked pages with metadata and snippets
+
+  - id: wiki.build_index
+    command: python scripts/build_wiki_index.py --wiki-root ai-infra-wiki --db wiki-index/ai_infra_wiki.sqlite
+    purpose: Build the local Wiki index.
+    side_effects: local_write
+    precondition: Python and PyYAML are available
+    output: SQLite database
+
+  - id: wiki.lint
+    command: python scripts/lint_wiki.py ai-infra-wiki
+    purpose: Check front matter, links, metadata and orphan pages.
+    side_effects: read_only
+    precondition: Python and PyYAML are available
+    output: lint summary
+
+  - id: wiki.load_bundle
+    command: python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --stage core
+    purpose: Load the selected stage of a progressive context bundle.
+    side_effects: read_only
+    precondition: bundle paths exist
+    output: bundle metadata and page contents
+
+  - id: learning.check
+    command: python scripts/check_learning.py --checklist checklists/inference-mha-kv-cache.yml
+    purpose: Summarize checklist progress and an optional study checkpoint.
+    side_effects: read_only
+    precondition: checklist YAML exists
+    output: completion summary and next action
+
+  - id: experiment.run
+    command: see the command in the selected experiment page
+    purpose: Run a topic-specific learning experiment.
+    side_effects: depends_on_experiment
+    precondition: experiment environment is recorded
+    output: experiment artifact

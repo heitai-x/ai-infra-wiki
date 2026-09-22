@@ -1,0 +1,33 @@
+schema_version: 1
+checkpoint_id: learning-topic-001
+kind: learning
+status: in_progress
+created_at: YYYY-MM-DD
+updated_at: YYYY-MM-DD
+
+goal:
+  title: Topic title
+  bundle: bundle.id
+  description: What this checkpoint is helping the learner complete.
+
+context:
+  loaded_stages: []
+  loaded_pages: []
+  learner_files: []
+
+progress:
+  completed: []
+  in_progress: []
+  blocked: []
+
+evidence:
+  artifacts: []
+  experiments: []
+  answers: []
+
+open_questions: []
+
+next:
+  action: Continue the current learning task.
+  stage: core
+  checklist: checklists/inference-mha-kv-cache.yml
