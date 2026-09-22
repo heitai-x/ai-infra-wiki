@@ -1,0 +1,34 @@
+checklist_id: training.ddp-fsdp
+version: 1
+title: DDP, FSDP and ZeRO Learning Checklist
+bundle: training.ddp-fsdp
+
+items:
+  - id: state-placement
+    criterion: Draw parameters, gradients, optimizer states and activations for DDP and FSDP.
+    status: todo
+    evidence: []
+  - id: communication
+    criterion: Explain all-reduce, all-gather and reduce-scatter in the training step.
+    status: todo
+    evidence: []
+  - id: memory-ledger
+    criterion: Build a memory ledger for parameters, gradients, optimizer states and activations.
+    status: todo
+    evidence: []
+  - id: checkpointing
+    criterion: Explain activation checkpointing and distributed checkpoint recovery.
+    status: todo
+    evidence: []
+  - id: experiment
+    criterion: Compare DDP and FSDP with recorded command, memory and step time.
+    status: todo
+    evidence: []
+  - id: profiler
+    criterion: Use a profiler timeline to locate communication on the training critical path.
+    status: todo
+    evidence: []
+  - id: teach-back
+    criterion: Explain when a learner should consider DDP, FSDP, ZeRO, TP or PP.
+    status: todo
+    evidence: []

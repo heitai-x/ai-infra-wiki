@@ -1,0 +1,34 @@
+checklist_id: serving.capacity-planning
+version: 1
+title: LLM Serving Capacity Planning Learning Checklist
+bundle: serving.capacity-planning
+
+items:
+  - id: request-lifecycle
+    criterion: Draw gateway, tokenizer, admission, prefill, decode, streaming and metrics stages.
+    status: todo
+    evidence: []
+  - id: kv-capacity
+    criterion: Calculate KV cache capacity using layers, KV heads, head dimension, sequence and dtype.
+    status: todo
+    evidence: []
+  - id: workload
+    criterion: Define prompt length, output length, concurrency, QPS and arrival pattern for a workload.
+    status: todo
+    evidence: []
+  - id: metrics
+    criterion: Relate TTFT, TPOT, ITL, queue time, throughput and KV utilization.
+    status: todo
+    evidence: []
+  - id: benchmark
+    criterion: Run or design a fair benchmark with fixed environment and raw output.
+    status: todo
+    evidence: []
+  - id: capacity-plan
+    criterion: Produce a capacity decision with SLO, replica, GPU and admission assumptions.
+    status: todo
+    evidence: []
+  - id: operations
+    criterion: Connect queue, error, KV and latency metrics to serving actions.
+    status: todo
+    evidence: []

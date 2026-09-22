@@ -51,6 +51,24 @@ def stage_items(bundle: dict[str, Any], stage: str) -> list[str]:
     return [item_path(item) for item in raw_items]
 
 
+def selected_items(bundle: dict[str, Any], stage: str, through: bool) -> list[str]:
+    if not through:
+        return stage_items(bundle, stage)
+    stages = bundle.get("stages")
+    if not isinstance(stages, dict):
+        raise SystemExit("Bundle must contain a stages mapping")
+    names = list(stages)
+    if stage not in names:
+        available = ", ".join(str(name) for name in names)
+        raise SystemExit(f"Unknown stage {stage!r}; available: {available}")
+    paths: list[str] = []
+    for name in names[: names.index(stage) + 1]:
+        for path in stage_items(bundle, name):
+            if path not in paths:
+                paths.append(path)
+    return paths
+
+
 def load_files(paths: list[str], repo_root: Path) -> list[dict[str, str]]:
     files: list[dict[str, str]] = []
     for raw_path in paths:
@@ -66,10 +84,10 @@ def load_files(paths: list[str], repo_root: Path) -> list[dict[str, str]]:
     return files
 
 
-def print_text(bundle: dict[str, Any], stage: str, files: list[dict[str, str]]) -> None:
+def print_text(bundle: dict[str, Any], stage: str, files: list[dict[str, str]], through: bool) -> None:
     print(f"bundle={bundle.get('bundle_id', '-')}")
     print(f"title={bundle.get('title', '-')}")
-    print(f"stage={stage}")
+    print(f"{'through' if through else 'stage'}={stage}")
     print(f"files={len(files)}")
     for file in files:
         print(f"\n===== {file['path']} =====")
@@ -79,7 +97,9 @@ def print_text(bundle: dict[str, Any], stage: str, files: list[dict[str, str]]) 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("bundle", help="Bundle YAML path")
-    parser.add_argument("--stage", help="Stage to load")
+    stage_group = parser.add_mutually_exclusive_group()
+    stage_group.add_argument("--stage", help="Load one stage")
+    stage_group.add_argument("--through", help="Load all stages through this stage")
     parser.add_argument("--list-stages", action="store_true", help="List stages and exit")
     parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args()
@@ -96,14 +116,16 @@ def main() -> int:
         for stage in stages:
             print(stage)
         return 0
-    if not args.stage:
-        raise SystemExit("Provide --stage or use --list-stages")
+    selected_stage = args.stage or args.through
+    if not selected_stage:
+        raise SystemExit("Provide --stage, --through or use --list-stages")
 
-    files = load_files(stage_items(bundle, args.stage), REPO_ROOT)
+    through = bool(args.through)
+    files = load_files(selected_items(bundle, selected_stage, through), REPO_ROOT)
     if args.format == "json":
-        print(json.dumps({"bundle": bundle, "stage": args.stage, "files": files}, ensure_ascii=False, indent=2))
+        print(json.dumps({"bundle": bundle, "stage": selected_stage, "through": through, "files": files}, ensure_ascii=False, indent=2))
     else:
-        print_text(bundle, args.stage, files)
+        print_text(bundle, selected_stage, files, through)
     return 0
 
 

@@ -4,7 +4,7 @@ type: workflow
 topic: wiki
 level: all
 status: active
-last_updated: 2026-09-22
+last_updated: 2026-09-23
 owner: local
 reliability: high
 tags: [maintenance, design, optimization, agent-agnostic, checkpoint]
@@ -124,7 +124,8 @@ Prompt 只描述任务协议，具体工具调用由 Agent 自己完成。
 | `wiki.load_bundle` | 按 stage 输出 bundle 上下文 | 本轮实现 |
 | `wiki.lint` | 检查 front matter、链接和孤儿页 | 已有脚本 |
 | `wiki.build_index` | 构建本地 SQLite 索引 | 已有脚本 |
-| `learning.check` | 汇总 checklist 和 checkpoint 状态 | 轻量实现 |
+| `learning.check` | 汇总 checklist 和 checkpoint 状态 | 已实现 |
+| `learning.record_checkpoint` | 创建或更新 study checkpoint | 已实现 |
 | `experiment.run` | 执行具体实验脚本 | 由实验页提供命令 |
 
 每项能力记录输入、输出和副作用。当前以本地 CLI 为主，后续可以由不同 Agent 映射为自己的工具调用。
@@ -201,7 +202,8 @@ python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --stage core
 - `tools/manifest.yml`；
 - `checklists/inference-mha-kv-cache.yml`；
 - `checkpoints/template.yml`；
-- `scripts/check_learning.py`。
+- `scripts/check_learning.py`；
+- `scripts/record_checkpoint.py`。
 
 验收：能够从 bundle 进入学习任务，读取 checklist，查看 checkpoint 状态，并得到下一步动作。
 
@@ -218,12 +220,15 @@ python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --stage core
 
 ### Phase 4：扩展主题
 
-按同样的 bundle/checklist 结构继续增加：
+首轮主题包已经按同样的 bundle/checklist 结构加入：
 
+- `inference.mha-kv-cache`；
 - `training.ddp-fsdp`；
 - `training.nccl-performance`；
 - `serving.capacity-planning`；
 - `rag.wiki-retrieval`。
+
+每个主题都有对应的页面阶段、Checklist 和共享 Checkpoint 模板。后续新增主题沿用同一协议。
 
 每个主题先形成一个适用的主题 bundle，再逐步补充实验和真实 raw artifact。
 

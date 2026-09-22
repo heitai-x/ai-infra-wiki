@@ -5,7 +5,7 @@ topic: wiki
 component: audit
 level: all
 status: active
-last_updated: 2026-06-29
+last_updated: 2026-09-23
 owner: local
 reliability: high
 tags: [acceptance, audit, validation, sub-agent]
@@ -73,7 +73,7 @@ tags: [acceptance, audit, validation, sub-agent]
 ## 当前自动化证据
 
 ```bash
-python3 -m py_compile   scripts/lint_wiki.py   scripts/build_wiki_index.py   scripts/search_wiki.py   scripts/check_wiki_index.py   scripts/experiments/torchrun_ddp_fsdp_minimal.py   scripts/experiments/llm_serving_benchmark.py
+python3 -m py_compile   scripts/lint_wiki.py   scripts/build_wiki_index.py   scripts/search_wiki.py   scripts/check_wiki_index.py   scripts/load_bundle.py   scripts/check_learning.py   scripts/record_checkpoint.py   scripts/experiments/torchrun_ddp_fsdp_minimal.py   scripts/experiments/llm_serving_benchmark.py
 
 python3 scripts/lint_wiki.py ai-infra-wiki
 python3 scripts/build_wiki_index.py --wiki-root ai-infra-wiki --db wiki-index/ai_infra_wiki.sqlite
@@ -94,6 +94,14 @@ FSDP ZeRO -> 20-training-systems/ddp-fsdp-zero.md, 80-playbooks/fsdp-zero-oom-tr
 NCCL hang -> 80-playbooks/nccl-hang-triage.md, 10-foundations/nccl-and-networking.md
 vLLM docs with source_type=official_doc -> 60-frameworks/vllm-sglang.md, 70-sources/official-docs/vllm-docs.md
 ```
+
+## Progressive Protocol Evidence（2026-09-23）
+
+- 五个 bundle 的所有 stage 均能加载，`--through core` 能输出连续上下文。
+- 五个主题 Checklist 均能被 `scripts/check_learning.py` 读取。
+- `scripts/record_checkpoint.py` 已通过创建、更新、读取 checkpoint 的验证。
+- Windows 下 Wiki 相对路径统一使用 `/`，`wiki_index_check=ok pages=104 chunks=803 source_chunks=218`。
+- `wiki_lint=ok files=104`。
 
 ## Acceptance Decision
 

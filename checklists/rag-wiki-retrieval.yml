@@ -1,0 +1,34 @@
+checklist_id: rag.wiki-retrieval
+version: 1
+title: Wiki Retrieval and Evaluation Learning Checklist
+bundle: rag.wiki-retrieval
+
+items:
+  - id: ingestion
+    criterion: Describe raw source ingestion, source cards, concept pages and operation log updates.
+    status: todo
+    evidence: []
+  - id: metadata
+    criterion: Explain type, topic, component, level, status and reliability metadata.
+    status: todo
+    evidence: []
+  - id: chunking
+    criterion: Explain how headings, tables, commands and source metadata affect chunks.
+    status: todo
+    evidence: []
+  - id: retrieval
+    criterion: Run a filtered BM25 search and interpret path, metadata and snippet results.
+    status: todo
+    evidence: []
+  - id: citation
+    criterion: Connect an answer claim to a concept page, source card or raw artifact.
+    status: todo
+    evidence: []
+  - id: evaluation
+    criterion: Define expected pages, Recall@k and groundedness for a retrieval question set.
+    status: todo
+    evidence: []
+  - id: maintenance
+    criterion: Run lint and update the coverage audit when content or evidence changes.
+    status: todo
+    evidence: []

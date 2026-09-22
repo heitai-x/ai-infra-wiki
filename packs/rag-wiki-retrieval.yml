@@ -1,0 +1,31 @@
+bundle_id: rag.wiki-retrieval
+version: 1
+title: Wiki Retrieval and Evaluation
+topic: rag
+goal: Understand Wiki ingestion, metadata, retrieval, citation and evaluation feedback.
+
+stages:
+  bootstrap:
+    - ai-infra-wiki/00-index/START-HERE.md
+    - ai-infra-wiki/01-roadmap/competency-matrix.md
+  map:
+    - ai-infra-wiki/02-llm-wiki-workflow/architecture.md
+    - ai-infra-wiki/02-llm-wiki-workflow/ingest-workflow.md
+    - ai-infra-wiki/02-llm-wiki-workflow/local-indexing.md
+  core:
+    - ai-infra-wiki/02-llm-wiki-workflow/rag-metadata-schema.md
+    - ai-infra-wiki/50-rag-agent-infra/embedding-retrieval-agent-infra.md
+    - ai-infra-wiki/50-rag-agent-infra/evaluation-feedback-loop.md
+  practice:
+    - ai-infra-wiki/02-llm-wiki-workflow/lint-and-maintenance.md
+    - ai-infra-wiki/99-maintenance/content-coverage-audit.md
+    - ai-infra-wiki/99-maintenance/acceptance-audit.md
+  deep_dive:
+    - ai-infra-wiki/70-sources/key-papers/rag-retrieval-papers.md
+    - ai-infra-wiki/70-sources/official-docs/vllm-docs.md
+  verify:
+    - ai-infra-wiki/00-index/question-bank.md
+    - checklists/rag-wiki-retrieval.yml
+
+checklist: checklists/rag-wiki-retrieval.yml
+checkpoint_template: checkpoints/template.yml

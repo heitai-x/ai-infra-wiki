@@ -1,0 +1,32 @@
+bundle_id: training.ddp-fsdp
+version: 1
+title: DDP, FSDP and ZeRO
+topic: training
+goal: Understand distributed training state placement, communication and memory tradeoffs.
+
+stages:
+  bootstrap:
+    - ai-infra-wiki/00-index/START-HERE.md
+    - ai-infra-wiki/01-roadmap/competency-matrix.md
+  map:
+    - ai-infra-wiki/10-foundations/gpu-system-map.md
+    - ai-infra-wiki/20-training-systems/distributed-training-map.md
+  core:
+    - ai-infra-wiki/20-training-systems/ddp-fsdp-zero.md
+    - ai-infra-wiki/20-training-systems/activation-optimizer-checkpoint.md
+    - ai-infra-wiki/20-training-systems/tensor-pipeline-context-parallel.md
+  practice:
+    - ai-infra-wiki/90-experiments/torchrun-ddp-fsdp-minimal.md
+    - ai-infra-wiki/90-experiments/single-node-training.md
+    - ai-infra-wiki/80-playbooks/fsdp-zero-oom-triage.md
+    - ai-infra-wiki/80-playbooks/profiling-trace-playbook.md
+  deep_dive:
+    - ai-infra-wiki/60-frameworks/pytorch-distributed.md
+    - ai-infra-wiki/70-sources/key-papers/zero-paper.md
+    - ai-infra-wiki/70-sources/official-docs/pytorch-profiler-docs.md
+  verify:
+    - ai-infra-wiki/00-index/question-bank.md
+    - checklists/training-ddp-fsdp.yml
+
+checklist: checklists/training-ddp-fsdp.yml
+checkpoint_template: checkpoints/template.yml

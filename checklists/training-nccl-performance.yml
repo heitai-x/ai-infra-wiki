@@ -1,0 +1,30 @@
+checklist_id: training.nccl-performance
+version: 1
+title: NCCL and Training Performance Learning Checklist
+bundle: training.nccl-performance
+
+items:
+  - id: collective-semantics
+    criterion: Explain the input and output semantics of all-reduce, all-gather, reduce-scatter and all-to-all.
+    status: todo
+    evidence: []
+  - id: topology
+    criterion: Connect PCIe, NVLink, NVSwitch and NIC topology to collective performance.
+    status: todo
+    evidence: []
+  - id: step-breakdown
+    criterion: Break a training step into data, compute, communication, checkpoint and idle time.
+    status: todo
+    evidence: []
+  - id: nccl-baseline
+    criterion: Record a communication benchmark or a documented local topology baseline.
+    status: todo
+    evidence: []
+  - id: hang-triage
+    criterion: Follow a reproducible NCCL hang triage path using logs and topology evidence.
+    status: todo
+    evidence: []
+  - id: profiler
+    criterion: Identify CPU launch, GPU kernels, NCCL kernels and overlap on a trace.
+    status: todo
+    evidence: []

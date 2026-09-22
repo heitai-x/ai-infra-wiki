@@ -84,7 +84,7 @@ def main() -> int:
         errors.append(f"chunks missing columns: {', '.join(sorted(missing_columns))}")
 
     config = load_wiki_config(wiki_root)
-    fs_pages = {str(path.relative_to(wiki_root)) for path in iter_markdown_files(wiki_root, config)}
+    fs_pages = {path.relative_to(wiki_root).as_posix() for path in iter_markdown_files(wiki_root, config)}
     db_pages = {row[0] for row in conn.execute("SELECT rel_path FROM pages").fetchall()} if "pages" in tables else set()
     missing_in_db = sorted(fs_pages - db_pages)
     extra_in_db = sorted(db_pages - fs_pages)

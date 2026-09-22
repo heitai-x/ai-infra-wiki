@@ -4,7 +4,7 @@ type: workflow
 topic: wiki
 level: all
 status: active
-last_updated: 2026-09-22
+last_updated: 2026-09-23
 owner: local
 reliability: high
 tags: [progressive-loading, context, bundle, agent-agnostic]
@@ -81,8 +81,10 @@ reliability -> 证据可靠性
 
 ```bash
 python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --stage map
+python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --through core
 python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --stage core --format json
 python scripts/check_learning.py --checklist checklists/inference-mha-kv-cache.yml
+python scripts/record_checkpoint.py --output checkpoints/session.yml --bundle inference.mha-kv-cache --stage core --action "Continue the core lesson"
 ```
 
 ## 学习记录

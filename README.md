@@ -25,7 +25,7 @@ Project protocols:
 Example:
 
 ```bash
-python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --stage core
+python scripts/load_bundle.py packs/inference-mha-kv-cache.yml --through core
 python scripts/check_learning.py --checklist checklists/inference-mha-kv-cache.yml
 ```
 

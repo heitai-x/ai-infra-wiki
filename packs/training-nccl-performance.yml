@@ -1,0 +1,32 @@
+bundle_id: training.nccl-performance
+version: 1
+title: NCCL and Training Performance
+topic: training
+goal: Connect collective communication, topology and profiler evidence to training step time.
+
+stages:
+  bootstrap:
+    - ai-infra-wiki/00-index/START-HERE.md
+    - ai-infra-wiki/01-roadmap/competency-matrix.md
+  map:
+    - ai-infra-wiki/10-foundations/gpu-system-map.md
+    - ai-infra-wiki/10-foundations/nccl-and-networking.md
+    - ai-infra-wiki/20-training-systems/training-performance-playbook.md
+  core:
+    - ai-infra-wiki/20-training-systems/distributed-training-map.md
+    - ai-infra-wiki/20-training-systems/data-pipeline-fault-tolerance.md
+    - ai-infra-wiki/80-playbooks/profiling-trace-playbook.md
+  practice:
+    - ai-infra-wiki/80-playbooks/nccl-network-baseline.md
+    - ai-infra-wiki/80-playbooks/nccl-hang-triage.md
+    - ai-infra-wiki/90-experiments/single-node-training.md
+  deep_dive:
+    - ai-infra-wiki/70-sources/official-docs/nccl-docs.md
+    - ai-infra-wiki/70-sources/official-docs/pytorch-distributed-docs.md
+    - ai-infra-wiki/70-sources/official-docs/pytorch-profiler-docs.md
+  verify:
+    - ai-infra-wiki/00-index/question-bank.md
+    - checklists/training-nccl-performance.yml
+
+checklist: checklists/training-nccl-performance.yml
+checkpoint_template: checkpoints/template.yml

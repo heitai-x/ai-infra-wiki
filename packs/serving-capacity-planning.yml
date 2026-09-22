@@ -1,0 +1,33 @@
+bundle_id: serving.capacity-planning
+version: 1
+title: LLM Serving Capacity Planning
+topic: serving
+goal: Connect request workload, KV capacity, scheduling, SLO and GPU deployment decisions.
+
+stages:
+  bootstrap:
+    - ai-infra-wiki/00-index/START-HERE.md
+    - ai-infra-wiki/01-roadmap/competency-matrix.md
+  map:
+    - ai-infra-wiki/30-inference-systems/llm-serving-map.md
+    - ai-infra-wiki/40-serving-platform/serving-platform-map.md
+    - ai-infra-wiki/40-serving-platform/observability-slo-cost.md
+  core:
+    - ai-infra-wiki/30-inference-systems/kv-cache-paged-attention.md
+    - ai-infra-wiki/30-inference-systems/batching-scheduling.md
+    - ai-infra-wiki/40-serving-platform/gpu-scheduling-kubernetes.md
+  practice:
+    - ai-infra-wiki/80-playbooks/serving-capacity-planning.md
+    - ai-infra-wiki/80-playbooks/benchmark-design.md
+    - ai-infra-wiki/90-experiments/llm-serving-benchmark.md
+    - ai-infra-wiki/90-experiments/vllm-sglang-benchmark-harness.md
+  deep_dive:
+    - ai-infra-wiki/60-frameworks/vllm-sglang.md
+    - ai-infra-wiki/70-sources/key-papers/pagedattention-paper.md
+    - ai-infra-wiki/70-sources/official-docs/slo-observability-docs.md
+  verify:
+    - ai-infra-wiki/00-index/question-bank.md
+    - checklists/serving-capacity-planning.yml
+
+checklist: checklists/serving-capacity-planning.yml
+checkpoint_template: checkpoints/template.yml

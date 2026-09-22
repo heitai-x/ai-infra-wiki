@@ -37,6 +37,13 @@ tools:
     precondition: checklist YAML exists
     output: completion summary and next action
 
+  - id: learning.record_checkpoint
+    command: python scripts/record_checkpoint.py --output checkpoints/session.yml --bundle inference.mha-kv-cache --stage core --action "Continue the core lesson"
+    purpose: Create or update a study checkpoint from session results.
+    side_effects: local_write
+    precondition: checkpoint template exists
+    output: versioned YAML checkpoint
+
   - id: experiment.run
     command: see the command in the selected experiment page
     purpose: Run a topic-specific learning experiment.

@@ -4,7 +4,7 @@ type: index
 topic: wiki
 level: all
 status: active
-last_updated: 2026-09-22
+last_updated: 2026-09-23
 owner: local
 reliability: high
 tags: [log, ingest, maintenance]
@@ -35,6 +35,13 @@ tags: [log, ingest, maintenance]
 - Added tool capability metadata, learning checklist and study checkpoint template.
 - Added `scripts/load_bundle.py` and `scripts/check_learning.py`.
 - Fixed the inbound link for `00-index/raw-sources-index.md`.
+
+## [2026-09-23] implementation | Learning Bundles And Checkpoints
+
+- Added training, NCCL, serving and RAG bundles alongside the inference bundle.
+- Added topic checklists for each bundle.
+- Added `scripts/record_checkpoint.py` for creating and updating study checkpoints.
+- Extended `scripts/load_bundle.py` with `--through` for cumulative stage loading.
 
 ## [2026-06-29] lint | Build Boundary Cleanup
 

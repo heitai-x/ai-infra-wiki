@@ -62,7 +62,7 @@ def read_pages(wiki_root: Path) -> list[Page]:
     config = load_wiki_config(wiki_root)
     pages: list[Page] = []
     for path in iter_markdown_files(wiki_root, config):
-        rel_path = str(path.relative_to(wiki_root))
+        rel_path = path.relative_to(wiki_root).as_posix()
         text = path.read_text(encoding="utf-8")
         fm, body = parse_front_matter(text, rel_path)
         validate_front_matter(fm, rel_path)
