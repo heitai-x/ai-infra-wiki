@@ -20,6 +20,7 @@ tags: [ai-infra, training, inference, serving, rag, llm-wiki]
 - 查知识地图看 [[00-index/topic-index]]。
 - 查概念看 [[00-index/concept-index]]。
 - 查权威资料看 [[00-index/source-index]]。
+- 查 raw artifact 落地图看 [[00-index/raw-sources-index]]。
 - 查已有 Codex/AI Infra skills 看 [[00-index/skill-index]]。
 - 查框架/硬件/平台实体看 [[00-index/entity-index]]。
 - 查学习路线看 [[01-roadmap/90-day-curriculum]]。
@@ -28,6 +29,7 @@ tags: [ai-infra, training, inference, serving, rag, llm-wiki]
 - 查标准 LLM Wiki 对齐看 [[02-llm-wiki-workflow/architecture]]、[[00-index/log]] 和 [[99-maintenance/content-coverage-audit]]。
 - 查模板看 [[03-templates/concept-note-template]]、[[03-templates/source-note-template]]、[[03-templates/experiment-note-template]]。
 - 查验收记录看 [[99-maintenance/acceptance-audit]]。
+- 查仓库缺口与优化方案看 [[99-maintenance/current-repository-gaps]]、[[99-maintenance/optimization-plan]]。
 - 查原始资料层看仓库根目录 `raw-sources/README.md`。
 - 做实验看 [[90-experiments/experiment-ladder]]，重点是 [[90-experiments/torchrun-ddp-fsdp-minimal]] 和 [[90-experiments/vllm-sglang-benchmark-harness]]。
 - 遇到线上问题看 [[80-playbooks/serving-capacity-planning]]、[[80-playbooks/nccl-hang-triage]]、[[80-playbooks/profiling-trace-playbook]] 和 [[80-playbooks/serving-production-deployment]]。
