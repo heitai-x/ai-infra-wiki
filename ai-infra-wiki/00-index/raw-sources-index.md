@@ -5,7 +5,7 @@ topic: ai-infra
 component: raw-sources
 level: all
 status: active
-last_updated: 2026-06-29
+last_updated: 2026-09-23
 owner: local
 reliability: high
 tags: [raw-sources, evidence, index]
@@ -29,6 +29,7 @@ tags: [raw-sources, evidence, index]
 | Inference | Prefix cache 命中率与 TTFT 关系 | [[30-inference-systems/prefix-cache-chunked-prefill-preemption]] | [[80-playbooks/benchmark-design]] | [[90-experiments/llm-serving-benchmark]] |
 | Inference | PD 分离部署 YAML + 网络拓扑 | [[30-inference-systems/disaggregated-and-moe-serving]] | [[80-playbooks/serving-production-deployment]] | （待补） |
 | Inference | Speculative decoding acceptance rate 日志 | [[30-inference-systems/parallelism-quantization-speculation]] | [[80-playbooks/benchmark-design]] | （待补） |
+| Inference | Transformer 组件 mask/shape/cache smoke JSON | [[10-foundations/attention-masks-and-softmax]]、[[30-inference-systems/mha-gqa-attention]]、[[30-inference-systems/kv-cache-compute-path]] | （待补） | [[90-experiments/transformer-components-smoke]] |
 | Serving | Kubernetes deployment + HPA 配置 | [[40-serving-platform/gpu-scheduling-kubernetes]] | [[80-playbooks/serving-production-deployment]] | （待补） |
 | Serving | Prometheus rules + Grafana dashboard JSON | [[40-serving-platform/observability-slo-cost]] | [[80-playbooks/serving-production-deployment]] | （待补） |
 | Serving | Rollout / canary 决策记录 | [[40-serving-platform/serving-platform-map]] | [[80-playbooks/serving-production-deployment]] | （待补） |
@@ -37,11 +38,13 @@ tags: [raw-sources, evidence, index]
 
 ## 状态
 
-- 当前已落地：4 份（local-simulated）。
+- 当前已落地：4 份 local-simulated + 1 份 local-run reference。
   - `raw-sources/training/torchrun-ddp-fsdp-smoke-2026-06-29.md`
   - `raw-sources/inference/llm-serving-benchmark-smoke-2026-06-29.md`
   - `raw-sources/serving/llm-serving-k8s-helm-prometheus-2026-06-29.md`
   - `raw-sources/rag/rag-retrieval-eval-smoke-2026-06-29.md`
+  - `raw-sources/inference/transformer-components-smoke-2026-09-23.md`
+- 组件 smoke 的原始 JSON：`artifacts/transformer-components/smoke-2026-09-23.json`；NumPy/AST 检查通过，PyTorch runtime 因本机 `c10.dll` WinError 1114 未运行。
 - 下一轮目标：用真实集群运行覆盖上述 4 份；新增 `raw-sources/hardware/`（`nvidia-smi topo -m`、`nccl-tests`）和 `raw-sources/traces/`（torch profiler、Nsight Systems）。
 
 ## 维护规则

@@ -35,6 +35,7 @@ tags: [ai-infra, training, inference, serving, rag, llm-wiki]
 - 查下一阶段纵向加深交接看 [[99-maintenance/agent-handoff-vertical-depth]]。
 - 查原始资料层看仓库根目录 `raw-sources/README.md`。
 - 做实验看 [[90-experiments/experiment-ladder]]。
+- 学习组件纵向主线看 [[10-foundations/attention-masks-and-softmax]]、[[10-foundations/normalization-and-activation]]、[[30-inference-systems/mha-gqa-attention]] 和 [[30-inference-systems/kv-cache-compute-path]]。
 - 遇到线上问题看 [[80-playbooks/serving-capacity-planning]]、[[80-playbooks/nccl-hang-triage]]、[[80-playbooks/profiling-trace-playbook]] 和 [[80-playbooks/serving-production-deployment]]。
 
 ## 学习闭环

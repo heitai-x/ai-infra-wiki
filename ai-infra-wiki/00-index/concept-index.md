@@ -29,8 +29,12 @@ tags: [index, concepts]
 
 | 概念 | 解决的问题 | 主要代价 | 入口 |
 |---|---|---|---|
+| Attention mask / safe softmax | 控制可见位置并避免 logits 数值不稳定 | `Tq*Tk` 中间张量、低精度下溢、全 mask 边界 | [[10-foundations/attention-masks-and-softmax]] |
+| RMSNorm / Activation | 控制 token 向量尺度并提供非线性 | 归约、elementwise 访存、dtype 舍入 | [[10-foundations/normalization-and-activation]] |
+| MHA / GQA | 用多头 Q/K/V 建立 token 间依赖并减少 KV head | attention 二次项、KV memory、head layout | [[30-inference-systems/mha-gqa-attention]] |
 | Prefill / Decode | 区分 prompt 计算与逐 token 生成 | 两阶段资源特性不同 | [[30-inference-systems/llm-serving-map]] |
 | KV Cache | 避免重复计算历史 token | 显存随并发和上下文增长 | [[30-inference-systems/kv-cache-paged-attention]] |
+| KV compute path | 解释 prefill append、decode 读取和 cache 容量 | HBM 读取、ragged batch、分页管理 | [[30-inference-systems/kv-cache-compute-path]] |
 | Paged KV | 降低 KV 内存碎片和浪费 | 页表/调度复杂度 | [[30-inference-systems/kv-cache-paged-attention]] |
 | Continuous Batching | 提高 decode 阶段吞吐 | 调度公平性和尾延迟 | [[30-inference-systems/batching-scheduling]] |
 | Speculative Decoding | 用草稿模型减少大模型步数 | 接受率、系统集成复杂度 | [[30-inference-systems/parallelism-quantization-speculation]] |

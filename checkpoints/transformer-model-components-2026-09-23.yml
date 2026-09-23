@@ -1,0 +1,63 @@
+schema_version: 1
+checkpoint_id: transformer-model-components-2026-09-23
+kind: learning
+status: in_progress
+created_at: '2026-09-23'
+updated_at: '2026-09-23'
+goal:
+  title: Transformer model components vertical depth
+  bundle: inference.transformer-model-components
+  description: 从六个 IDE 代码入口建立 safe softmax、RMSNorm、MHA、GQA、KV cache 到 serving 的可运行学习链。
+context:
+  loaded_stages:
+  - core
+  - practice
+  loaded_pages:
+  - ai-infra-wiki/00-index/START-HERE.md
+  - ai-infra-wiki/10-foundations/attention-masks-and-softmax.md
+  - ai-infra-wiki/10-foundations/normalization-and-activation.md
+  - ai-infra-wiki/30-inference-systems/mha-gqa-attention.md
+  - ai-infra-wiki/30-inference-systems/kv-cache-compute-path.md
+  - ai-infra-wiki/30-inference-systems/kv-cache-paged-attention.md
+  - ai-infra-wiki/30-inference-systems/batching-scheduling.md
+  - ai-infra-wiki/90-experiments/transformer-components-smoke.md
+  learner_files:
+  - D:\桌面\code\softmax.py
+  - D:\桌面\code\ReLu.py
+  - D:\桌面\code\RMSNorm.py
+  - D:\桌面\code\MHA.py
+  - D:\桌面\code\GQA.py
+  - D:\桌面\code\kvcache.py
+progress:
+  completed:
+  - source-inventory
+  - concept-pages
+  - numpy-reference-smoke
+  - safe-softmax
+  - mask-shape
+  - norm-activation
+  - mha-shape
+  - gqa-mapping
+  - prefill-decode
+  - kv-ledger
+  - component-experiment
+  in_progress:
+  - pytorch-runtime-smoke
+  - contiguous-paged
+  - serving-teach-back
+  blocked: []
+evidence:
+  artifacts:
+  - artifacts/transformer-components/source-inventory-2026-09-23.md
+  - artifacts/transformer-components/smoke-2026-09-23.json
+  - raw-sources/inference/transformer-components-smoke-2026-09-23.md
+  experiments:
+  - ai-infra-wiki/90-experiments/transformer-components-smoke.md
+  answers: []
+open_questions:
+- 本机 PyTorch 2.13.0 的 c10.dll WinError 1114 如何修复或换用可导入环境？
+- 如何在单 GPU 上测量 MHA/GQA 的临时 K/V、KV cache bytes 与 decode 带宽？
+next:
+  action: 修复或切换 PyTorch 环境后复跑 runtime smoke；再补 paged cache 和 serving teach-back evidence
+  stage: practice
+  checklist: checklists/transformer-model-components.yml

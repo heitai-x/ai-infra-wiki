@@ -1,0 +1,153 @@
+{
+  "experiment": "transformer_components_smoke",
+  "collected_at": "2026-09-23",
+  "environment": {
+    "python": "3.11.7",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "1.26.4",
+    "source_root": "D:\\桌面\\code"
+  },
+  "source_inventory": {
+    "root": "D:\\桌面\\code",
+    "files": {
+      "softmax.py": {
+        "status": "passed",
+        "definitions": [
+          "safe_softmax"
+        ]
+      },
+      "ReLu.py": {
+        "status": "passed",
+        "definitions": [
+          "ReLU",
+          "__init__",
+          "forward",
+          "relu"
+        ]
+      },
+      "RMSNorm.py": {
+        "status": "passed",
+        "definitions": [
+          "RMSNorm",
+          "__init__",
+          "forward"
+        ]
+      },
+      "MHA.py": {
+        "status": "passed",
+        "definitions": [
+          "MultiheadAttention",
+          "__init__",
+          "forward"
+        ]
+      },
+      "GQA.py": {
+        "status": "passed",
+        "definitions": [
+          "GQA",
+          "GroupedQueryAttention",
+          "__init__",
+          "forward"
+        ]
+      },
+      "kvcache.py": {
+        "status": "passed",
+        "definitions": [
+          "KVCache",
+          "__init__",
+          "append",
+          "clear",
+          "get",
+          "is_full",
+          "remaining_length",
+          "reset"
+        ]
+      }
+    },
+    "status": "passed"
+  },
+  "pytorch": {
+    "status": "unavailable",
+    "error_type": "OSError",
+    "error": "[WinError 1114] 动态链接库(DLL)初始化例程失败。 Error loading \"C:\\Users\\26815\\AppData\\Roaming\\Python\\Python311\\site-packages\\torch\\lib\\c10.dll\" or one of its dependencies."
+  },
+  "checks": [
+    {
+      "name": "safe_softmax_mask_and_full_row",
+      "status": "passed",
+      "detail": "result=[[0.26894140243530273, 0.7310585975646973, 0.0], [0.0, 0.0, 0.0]]"
+    },
+    {
+      "name": "safe_softmax_float_dtypes",
+      "status": "passed",
+      "detail": "float32:finite=True; float16:finite=True"
+    },
+    {
+      "name": "relu_forward",
+      "status": "passed",
+      "detail": "output=[[0.0, 0.0, 3.0]]"
+    },
+    {
+      "name": "rmsnorm_unit_rms",
+      "status": "passed",
+      "detail": "output=[[0.8486328125, 1.1318359375]], rms=[1.000307559967041]"
+    },
+    {
+      "name": "mha_shape_and_causal_mask",
+      "status": "passed",
+      "detail": "output_shape=[2, 4, 8], weights_shape=[2, 4, 4, 4], future_max=0.0"
+    },
+    {
+      "name": "gqa_shape_and_kv_ratio",
+      "status": "passed",
+      "detail": "output_shape=[2, 4, 8], weights_shape=[2, 4, 4, 4], kv_heads=2, q_heads=4"
+    },
+    {
+      "name": "kv_cache_prefill_decode_append",
+      "status": "passed",
+      "detail": "length=4, shape=[2, 2, 4, 2]"
+    },
+    {
+      "name": "kv_cache_reset",
+      "status": "passed",
+      "detail": "length=0, remaining=5"
+    },
+    {
+      "name": "source_definitions:softmax.py",
+      "status": "passed",
+      "detail": "found=['safe_softmax'], missing=[]"
+    },
+    {
+      "name": "source_definitions:ReLu.py",
+      "status": "passed",
+      "detail": "found=['ReLU', 'relu'], missing=[]"
+    },
+    {
+      "name": "source_definitions:RMSNorm.py",
+      "status": "passed",
+      "detail": "found=['RMSNorm'], missing=[]"
+    },
+    {
+      "name": "source_definitions:MHA.py",
+      "status": "passed",
+      "detail": "found=['MultiheadAttention'], missing=[]"
+    },
+    {
+      "name": "source_definitions:GQA.py",
+      "status": "passed",
+      "detail": "found=['GQA', 'GroupedQueryAttention'], missing=[]"
+    },
+    {
+      "name": "source_definitions:kvcache.py",
+      "status": "passed",
+      "detail": "found=['KVCache'], missing=[]"
+    },
+    {
+      "name": "source_inventory",
+      "status": "passed",
+      "detail": "root=D:\\桌面\\code"
+    }
+  ],
+  "passed": true,
+  "note": "NumPy checks are reference invariants. PyTorch checks are skipped when the local native installation cannot be imported."
+}

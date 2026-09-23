@@ -5,6 +5,7 @@ Bundle 将一个学习目标组织成 bootstrap、map、core、practice、deep_d
 当前主题包：
 
 - `inference-mha-kv-cache.yml`：MHA、GQA、KV Cache 和 serving。
+- `transformer-model-components.yml`：safe softmax、RMSNorm、MHA、GQA、KV Cache 和组件实验。
 - `training-ddp-fsdp.yml`：DDP、FSDP、ZeRO 和训练显存。
 - `training-nccl-performance.yml`：NCCL、拓扑、通信和训练性能。
 - `serving-capacity-planning.yml`：KV capacity、调度、SLO 和部署。

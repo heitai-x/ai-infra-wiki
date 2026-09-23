@@ -16,6 +16,7 @@ tags: [backlog, maintenance]
 
 - 设计文档：[[99-maintenance/current-repository-gaps]] 与 [[99-maintenance/optimization-plan]]。
 - 纵向加深交接：[[99-maintenance/agent-handoff-vertical-depth]]。
+- 已完成组件纵向主线首轮：safe softmax、RMSNorm、ReLU、MHA、GQA、KV cache 页面、smoke script、raw artifact、bundle 和 checklist。
 - 为每个 source card 增加更细的版本号和章节定位。
 - 已加入真实 `torchrun` DDP/FSDP 最小实验脚本；后续补 GPU raw artifacts。
 - 已加入 OpenAI-compatible vLLM/SGLang benchmark harness；后续补真实 server raw artifacts。
@@ -25,7 +26,8 @@ tags: [backlog, maintenance]
 
 ## 中优先级
 
-- 补充 Transformer architecture、attention、MLP、RMSNorm、RoPE 的模型结构页。
+- 补充 Transformer architecture、attention、MLP、RMSNorm、RoPE 的模型结构页；当前已落地 attention mask、normalization/activation 和 MHA/GQA/KV cache，仍缺独立 MLP/RoPE 页。
+- 修复 PyTorch native DLL 环境后，补组件运行时输出、单 GPU 显存和 decode 带宽 artifact。
 - 补充 RL post-training、SLIME、GRPO、PPO 的训练系统页。
 - 补充 Ray Train、TorchTitan、NeMo、Colossal-AI 等框架 source cards。
 - 补充 Nsight Systems / Nsight Compute 使用 playbook。

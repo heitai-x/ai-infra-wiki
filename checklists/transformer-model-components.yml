@@ -1,0 +1,84 @@
+checklist_id: inference.transformer-model-components
+version: 1
+title: Transformer Model Components Learning Checklist
+bundle: inference.transformer-model-components
+
+items:
+  - id: source-inventory
+    criterion: 说出六个 IDE 文件的入口函数、输入输出 shape 和当前实现边界。
+    status: done
+    evidence:
+      - artifacts/transformer-components/source-inventory-2026-09-23.md
+      - checkpoints/transformer-model-components-2026-09-23.yml
+
+  - id: safe-softmax
+    criterion: 解释 max-subtract、mask、fully masked row 和 fp16/bf16 数值边界。
+    status: done
+    evidence:
+      - ai-infra-wiki/10-foundations/attention-masks-and-softmax.md
+      - raw-sources/inference/transformer-components-smoke-2026-09-23.md
+
+  - id: mask-shape
+    criterion: 给出 `[B,H,Tq,Tk]` score 对应的 causal、padding 和 request-local mask shape 与广播规则。
+    status: done
+    evidence:
+      - ai-infra-wiki/10-foundations/attention-masks-and-softmax.md
+      - ai-infra-wiki/30-inference-systems/mha-gqa-attention.md
+
+  - id: norm-activation
+    criterion: 写出 RMSNorm 公式，说明 ReLU 输出 shape、residual 位置和 dtype 路径。
+    status: done
+    evidence:
+      - ai-infra-wiki/10-foundations/normalization-and-activation.md
+      - raw-sources/inference/transformer-components-smoke-2026-09-23.md
+
+  - id: mha-shape
+    criterion: 从 `[B,T,3*d_model]` 推导 MHA 的 Q/K/V、score、value aggregation 和 concat shape。
+    status: done
+    evidence:
+      - ai-infra-wiki/30-inference-systems/mha-gqa-attention.md
+      - artifacts/transformer-components/smoke-2026-09-23.json
+
+  - id: gqa-mapping
+    criterion: 对具体 `Hq`、`Hkv` 算出 group mapping，并解释哪些 K/V 显存和投影成本下降、哪些 score 计算保留。
+    status: done
+    evidence:
+      - ai-infra-wiki/30-inference-systems/mha-gqa-attention.md
+      - artifacts/transformer-components/smoke-2026-09-23.json
+
+  - id: prefill-decode
+    criterion: 解释 prefill 的 `Tq=Tk=P` 与 decode 的 `Tq=1,Tk=L+1`，并连接到 KV cache append/read。
+    status: done
+    evidence:
+      - ai-infra-wiki/30-inference-systems/kv-cache-compute-path.md
+      - ai-infra-wiki/90-experiments/transformer-components-smoke.md
+
+  - id: kv-ledger
+    criterion: 用具体 layers、KV heads、head_dim、tokens 和 dtype 计算 per-rank KV bytes，并说明 TP 口径。
+    status: done
+    evidence:
+      - ai-infra-wiki/30-inference-systems/kv-cache-compute-path.md
+      - ai-infra-wiki/10-foundations/model-architecture-cost-formulas.md
+
+  - id: contiguous-paged
+    criterion: 对比连续 cache 与 paged cache 的 layout、ragged batch、block table、eviction 和 admission 代价。
+    status: in_progress
+    evidence:
+      - ai-infra-wiki/30-inference-systems/kv-cache-compute-path.md
+      - ai-infra-wiki/30-inference-systems/kv-cache-paged-attention.md
+
+  - id: component-experiment
+    criterion: 运行组件 smoke test，保存命令、环境、原始 JSON 和 PyTorch/参考实现的证据边界。
+    status: done
+    evidence:
+      - ai-infra-wiki/90-experiments/transformer-components-smoke.md
+      - raw-sources/inference/transformer-components-smoke-2026-09-23.md
+      - artifacts/transformer-components/smoke-2026-09-23.json
+
+  - id: serving-teach-back
+    criterion: 从 safe softmax 讲到 Transformer block、prefill/decode、batching、TTFT、TPOT 和 KV capacity。
+    status: in_progress
+    evidence:
+      - ai-infra-wiki/30-inference-systems/llm-serving-map.md
+      - ai-infra-wiki/30-inference-systems/batching-scheduling.md
+      - ai-infra-wiki/30-inference-systems/kv-cache-compute-path.md

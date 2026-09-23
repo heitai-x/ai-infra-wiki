@@ -4,7 +4,7 @@ type: workflow
 topic: wiki
 level: all
 status: active
-last_updated: 2026-06-29
+last_updated: 2026-09-23
 owner: local
 reliability: high
 tags: [audit, coverage, hallucination, llm-wiki]
@@ -233,3 +233,30 @@ tags: [audit, coverage, hallucination, llm-wiki]
 1. 用真实集群运行覆盖所有 4 份 local-simulated raw artifact，复制为 real 版本。
 2. 为更多 playbook / experiment 落 raw artifact（如 `nccl-network-baseline` 需要 `nvidia-smi topo -m` + `nccl-tests` 输出）。
 3. 考虑把 `60-frameworks/**` 的 source card 页也补 raw artifact（如 import 自检、version 输出）。
+
+## 第 11 轮：Transformer 组件纵向加深（2026-09-23）
+
+- 新增概念页：
+  - `10-foundations/attention-masks-and-softmax`
+  - `10-foundations/normalization-and-activation`
+  - `30-inference-systems/mha-gqa-attention`
+  - `30-inference-systems/kv-cache-compute-path`
+- 新增组件实验和证据：
+  - `90-experiments/transformer-components-smoke`
+  - `raw-sources/inference/transformer-components-smoke-2026-09-23.md`
+  - `artifacts/transformer-components/source-inventory-2026-09-23.md`
+  - `artifacts/transformer-components/smoke-2026-09-23.json`
+  - `scripts/transformer_components_smoke.py`
+- 新增学习协议：
+  - `packs/transformer-model-components.yml`
+  - `checklists/transformer-model-components.yml`
+  - `checkpoints/transformer-model-components-2026-09-23.yml`
+- 纵向主线已从 safe softmax / activation 连接到 RMSNorm、MHA、GQA、KV cache、prefill/decode 和 batching 页面。
+- 本轮证据等级保持 `reliability: medium`：NumPy 参考和 AST 盘点通过，但本机 PyTorch 2.13.0 导入触发 Windows `WinError 1114`，尚无 PyTorch runtime / GPU 数值。
+
+## 本轮剩余风险
+
+- 六个 IDE 文件仍在仓库外，仓库通过路径、AST inventory 和 smoke script 追踪它们；源码迁移或重命名后需要同步 checkpoint 和实验命令。
+- 参考实验没有测量 CUDA kernel、HBM 带宽、显存峰值、TP per-rank layout 或 serving latency。
+- `kvcache.py` 的单一 batch length、连续布局不能代表 ragged/paged cache；需要后续 block table、eviction 和 admission artifact。
+- MHA/GQA 当前是完整序列 self-attention，不包含 rotary embedding、dropout、cache offset 或 fused attention kernel。

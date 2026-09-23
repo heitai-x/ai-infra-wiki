@@ -85,6 +85,8 @@ Paged KV 把 KV cache 切成固定大小 block/page，请求只持有实际用�
 
 ## 相关页面
 
+- [[30-inference-systems/kv-cache-compute-path]]：从 prefill append 到 decode 读取的连续 cache 计算路径。
+- [[30-inference-systems/mha-gqa-attention]]：MHA/GQA 的 KV head 与 cache bytes 关系。
 - [[30-inference-systems/llm-serving-map]]
 - [[30-inference-systems/batching-scheduling]]
 - [[80-playbooks/serving-capacity-planning]]

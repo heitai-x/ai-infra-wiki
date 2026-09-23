@@ -128,3 +128,26 @@ Checklist 将“读过页面”转化为“完成了可验证学习任务”。
 | P1 | 维护一致性 | 修复 orphan page、更新操作日志、lint 和索引检查通过 |
 | P2 | 课程深化 | 补 Attention/Transformer 页面和更多主题练习 |
 | P2 | 真实证据 | 用真实 GPU、serving 和 trace 输出替换教学样例 |
+
+## 2026-09-23 组件纵向加深后的状态
+
+已补齐一条可从代码入口继续学习的首轮主线：
+
+```text
+safe softmax / activation
+  -> RMSNorm
+  -> MHA
+  -> GQA
+  -> KV Cache
+  -> prefill / decode
+  -> batching / serving
+```
+
+交付物包括四个概念页、一个组件实验页、一个 NumPy/AST smoke script、一个 raw artifact、`transformer-model-components` bundle、Checklist 和学习 Checkpoint。新增页面均保持 `reliability: medium`，因为当前证据能够验证公式、shape、mask 和 cache 状态机，但本机 PyTorch DLL 无法导入，尚无 GPU runtime 数字。
+
+下一步缺口按优先级排列：
+
+1. 修复或切换 PyTorch 运行环境，复跑六个 IDE 文件的实际 forward 测试。
+2. 在单 GPU 上记录 MHA/GQA 的显存、临时 K/V、prefill/decode 时间和带宽观察。
+3. 将连续 cache 实验扩展为 ragged/paged cache，记录 block table、prefix reuse、eviction 和 admission。
+4. 再补 MLP、RoPE、完整 Transformer block 页面，保持主题数量和现有 bundle 协议稳定。

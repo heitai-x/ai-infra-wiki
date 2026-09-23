@@ -75,6 +75,7 @@ python scripts/check_wiki_index.py \
 ## 当前学习主题
 
 - `inference.mha-kv-cache`：MHA、GQA、safe softmax、prefill/decode、KV Cache 和 PagedAttention。
+- `inference.transformer-model-components`：safe softmax、RMSNorm、MHA、GQA、KV Cache 和组件实验。
 - `training.ddp-fsdp`：DDP、FSDP、ZeRO、显存账本和训练通信。
 - `training.nccl-performance`：NCCL collective、GPU 拓扑、通信和 profiler。
 - `serving.capacity-planning`：请求 workload、KV capacity、调度、SLO 和部署。

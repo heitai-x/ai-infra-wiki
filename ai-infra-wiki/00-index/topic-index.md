@@ -18,6 +18,8 @@ tags: [index, topics]
 - [[10-foundations/cuda-kernel-basics]]：kernel、thread/block/grid、occupancy、memory coalescing。
 - [[10-foundations/memory-and-roofline]]：compute-bound / memory-bound、roofline、带宽估算。
 - [[10-foundations/model-architecture-cost-formulas]]：模型结构到参数量、FLOPs、activation、KV cache 成本。
+- [[10-foundations/attention-masks-and-softmax]]：causal/padding mask、稳定 softmax 和 fully masked row。
+- [[10-foundations/normalization-and-activation]]：RMSNorm、ReLU、residual、dtype 和 elementwise 代价。
 - [[10-foundations/nccl-and-networking]]：collective、拓扑、IB/RoCE、NCCL hang 排查入口。
 
 ## 分布式训练
@@ -34,6 +36,8 @@ tags: [index, topics]
 ## 推理系统
 
 - [[30-inference-systems/llm-serving-map]]：prefill/decode、scheduler、KV cache、SLO。
+- [[30-inference-systems/mha-gqa-attention]]：QKV、head reshape、MHA/GQA、score 和 KV head 映射。
+- [[30-inference-systems/kv-cache-compute-path]]：prefill append、decode 读取、连续 cache 和容量公式。
 - [[30-inference-systems/kv-cache-paged-attention]]：KV cache 与 paged memory。
 - [[30-inference-systems/batching-scheduling]]：continuous batching、admission control、fairness。
 - [[30-inference-systems/parallelism-quantization-speculation]]：推理并行、量化、投机解码。

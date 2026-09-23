@@ -44,6 +44,17 @@ tags: [rag, evaluation, questions]
 7. 量化权重、activation、KV cache 的风险分别是什么？
 8. Disaggregated serving 为什么要拆 prefill 和 decode？代价是什么？
 
+## Transformer 组件代码
+
+1. `safe_softmax` 为什么先减 row max？fully masked row 为什么约定为全零？
+2. `[B,H,Tq,Tk]` 的 causal mask、padding mask 和 request-local mask 如何广播和合并？
+3. RMSNorm 的平方均值、`eps`、`weight` shape 和 fp16/bf16 的 fp32 计算路径是什么？
+4. ReLU 的输出 shape、dtype 和访存路径是什么？零值比例为什么不等于稀疏加速比？
+5. 从 `MHA.py` 的 `[B,T,3*d_model]` 如何得到 `[B,H,T,Dh]`，score shape 为什么是 `[B,H,T,T]`？
+6. GQA 中 `Hq=32,Hkv=8` 的 group 映射是什么？哪些计算没有按四分之一缩小？
+7. prefill 的 `Tq=Tk=P` 与 decode 的 `Tq=1,Tk=L+1` 如何连接到 KV cache？
+8. `kvcache.py` 的单一 `length` 为什么不能表示 ragged batch？paged cache 增加了哪些状态？
+
 ## 平台工程
 
 1. 一个多租户 LLM serving 平台至少需要哪些组件？

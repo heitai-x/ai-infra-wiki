@@ -69,6 +69,19 @@ KV bytes per rank = live_tokens * layers_held_by_rank * 2 * kv_heads_held_by_ran
 3. 再选择 FSDP/TP/PP/CP/EP 或 serving TP/quantization。
 4. 用 [[90-experiments/torchrun-ddp-fsdp-minimal]] 或 [[90-experiments/vllm-sglang-benchmark-harness]] 验证估算。
 
+## 组件级展开
+
+模型账本可以沿下面的代码路径逐项展开：
+
+```text
+safe softmax -> RMSNorm / activation -> MHA / GQA -> KV cache -> serving
+```
+
+- mask 和 softmax 的 score / weight shape 见 [[10-foundations/attention-masks-and-softmax]]。
+- normalization、activation、residual 和 dtype 见 [[10-foundations/normalization-and-activation]]。
+- QKV projection、head reshape、MHA/GQA 的 KV head 比例见 [[30-inference-systems/mha-gqa-attention]]。
+- prefill/decode、append、per-rank KV bytes 和 paged cache 连接见 [[30-inference-systems/kv-cache-compute-path]]。
+
 ## 本地证据
 
 - 暂无 `raw-sources/` 下的真实 HF config 拆解与本机 GPU 显存 / KV 容量复现样本。

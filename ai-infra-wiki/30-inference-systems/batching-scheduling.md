@@ -84,6 +84,8 @@ iteration 4: req E joins
 
 ## 相关页面
 
+- [[30-inference-systems/mha-gqa-attention]]：query/KV head 数影响 decode 读取与 cache 容量。
+- [[30-inference-systems/kv-cache-compute-path]]：prefill/decode 的 query/key 长度和 admission 账本。
 - [[30-inference-systems/llm-serving-map]]
 - [[30-inference-systems/kv-cache-paged-attention]]
 - [[40-serving-platform/observability-slo-cost]]

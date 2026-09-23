@@ -90,6 +90,10 @@ client request
 
 ## 相关页面
 
+- [[10-foundations/attention-masks-and-softmax]]
+- [[10-foundations/normalization-and-activation]]
+- [[30-inference-systems/mha-gqa-attention]]
+- [[30-inference-systems/kv-cache-compute-path]]
 - [[30-inference-systems/kv-cache-paged-attention]]
 - [[30-inference-systems/batching-scheduling]]
 - [[80-playbooks/serving-capacity-planning]]

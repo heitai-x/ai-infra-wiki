@@ -55,6 +55,22 @@ tags: [log, ingest, maintenance]
 - Defined the next learning spine from safe softmax and normalization through MHA, GQA, KV Cache and serving.
 - Recorded the current IDE code entry points, proposed content pages, experiments, bundle, checklist and acceptance criteria.
 
+## [2026-09-23] implementation | Transformer Components Vertical Depth
+
+- Added concept pages:
+  - `10-foundations/attention-masks-and-softmax.md`
+  - `10-foundations/normalization-and-activation.md`
+  - `30-inference-systems/mha-gqa-attention.md`
+  - `30-inference-systems/kv-cache-compute-path.md`
+- Added component experiment, source inventory and CPU reference artifact:
+  - `90-experiments/transformer-components-smoke.md`
+  - `scripts/transformer_components_smoke.py`
+  - `raw-sources/inference/transformer-components-smoke-2026-09-23.md`
+  - `artifacts/transformer-components/`
+- Added `packs/transformer-model-components.yml`, `checklists/transformer-model-components.yml` and `checkpoints/transformer-model-components-2026-09-23.yml`.
+- The NumPy reference checks and six-file AST inventory passed. PyTorch runtime checks were skipped because the local 2.13.0 installation raises Windows `WinError 1114` while loading `c10.dll`; the raw artifact records this boundary.
+- Extended concept/topic/question indexes and linked the new pages into model cost, serving, KV cache and batching navigation.
+
 ## [2026-06-29] lint | Build Boundary Cleanup
 
 - Added config-driven ignore rules for transient folders such as `.ipynb_checkpoints`.

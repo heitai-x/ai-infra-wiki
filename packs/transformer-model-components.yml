@@ -1,0 +1,38 @@
+bundle_id: inference.transformer-model-components
+version: 1
+title: Transformer Model Components
+topic: inference
+goal: 从 safe softmax、RMSNorm、MHA、GQA 和 KV cache 的代码出发，解释 shape、dtype、显存和 serving 计算路径。
+
+stages:
+  bootstrap:
+    - ai-infra-wiki/00-index/START-HERE.md
+    - ai-infra-wiki/01-roadmap/competency-matrix.md
+  map:
+    - ai-infra-wiki/10-foundations/gpu-system-map.md
+    - ai-infra-wiki/10-foundations/model-architecture-cost-formulas.md
+    - ai-infra-wiki/30-inference-systems/llm-serving-map.md
+  core:
+    - ai-infra-wiki/10-foundations/attention-masks-and-softmax.md
+    - ai-infra-wiki/10-foundations/normalization-and-activation.md
+    - ai-infra-wiki/30-inference-systems/mha-gqa-attention.md
+    - ai-infra-wiki/30-inference-systems/kv-cache-compute-path.md
+    - ai-infra-wiki/30-inference-systems/kv-cache-paged-attention.md
+  practice:
+    - ai-infra-wiki/90-experiments/transformer-components-smoke.md
+    - raw-sources/inference/transformer-components-smoke-2026-09-23.md
+    - artifacts/transformer-components/source-inventory-2026-09-23.md
+    - artifacts/transformer-components/smoke-2026-09-23.json
+    - scripts/transformer_components_smoke.py
+  deep_dive:
+    - ai-infra-wiki/70-sources/key-papers/transformer-architecture-papers.md
+    - ai-infra-wiki/70-sources/key-papers/flashattention-papers.md
+    - ai-infra-wiki/70-sources/key-papers/pagedattention-paper.md
+    - ai-infra-wiki/70-sources/official-docs/vllm-docs.md
+    - ai-infra-wiki/70-sources/official-docs/cuda-programming-guide-docs.md
+  verify:
+    - ai-infra-wiki/00-index/question-bank.md
+    - checklists/transformer-model-components.yml
+
+checklist: checklists/transformer-model-components.yml
+checkpoint_template: checkpoints/template.yml

@@ -44,9 +44,13 @@ AI Infra 的训推系统可以用一句话概括：把模型训练和模型推�
 6. [[20-training-systems/ddp-fsdp-zero]]
 7. [[20-training-systems/tensor-pipeline-context-parallel]]
 8. [[30-inference-systems/llm-serving-map]]
-9. [[30-inference-systems/kv-cache-paged-attention]]
-10. [[30-inference-systems/batching-scheduling]]
-11. [[40-serving-platform/observability-slo-cost]]
+9. [[10-foundations/attention-masks-and-softmax]]
+10. [[10-foundations/normalization-and-activation]]
+11. [[30-inference-systems/mha-gqa-attention]]
+12. [[30-inference-systems/kv-cache-compute-path]]
+13. [[30-inference-systems/kv-cache-paged-attention]]
+14. [[30-inference-systems/batching-scheduling]]
+15. [[40-serving-platform/observability-slo-cost]]
 
 ## 最小实践闭环
 
