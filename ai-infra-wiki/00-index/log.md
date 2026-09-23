@@ -43,6 +43,12 @@ tags: [log, ingest, maintenance]
 - Added `scripts/record_checkpoint.py` for creating and updating study checkpoints.
 - Extended `scripts/load_bundle.py` with `--through` for cumulative stage loading.
 
+## [2026-09-23] docs | README Refresh
+
+- Updated the repository README with project protocols, bundle commands and the learning loop.
+- Updated the Wiki README with bundle, Prompt, Checklist and Checkpoint entry points.
+- Restored entity and skill index links and re-ran Wiki lint and index consistency checks.
+
 ## [2026-06-29] lint | Build Boundary Cleanup
 
 - Added config-driven ignore rules for transient folders such as `.ipynb_checkpoints`.
