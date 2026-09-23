@@ -32,6 +32,7 @@ tags: [ai-infra, training, inference, serving, rag, llm-wiki]
 - 查模板看 [[03-templates/concept-note-template]]、[[03-templates/source-note-template]]、[[03-templates/experiment-note-template]]。
 - 查验收记录看 [[99-maintenance/acceptance-audit]]。
 - 查仓库缺口与优化方案看 [[99-maintenance/current-repository-gaps]]、[[99-maintenance/optimization-plan]]。
+- 查下一阶段纵向加深交接看 [[99-maintenance/agent-handoff-vertical-depth]]。
 - 查原始资料层看仓库根目录 `raw-sources/README.md`。
 - 做实验看 [[90-experiments/experiment-ladder]]。
 - 遇到线上问题看 [[80-playbooks/serving-capacity-planning]]、[[80-playbooks/nccl-hang-triage]]、[[80-playbooks/profiling-trace-playbook]] 和 [[80-playbooks/serving-production-deployment]]。

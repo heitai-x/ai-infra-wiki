@@ -12,6 +12,7 @@
 - [Learning Bundles](packs/README.md)：按主题加载学习内容。
 - [Project Gaps](ai-infra-wiki/99-maintenance/current-repository-gaps.md)：当前仓库缺口和已完成修复。
 - [Optimization Plan](ai-infra-wiki/99-maintenance/optimization-plan.md)：项目协议和推进方案。
+- [Agent Handoff](ai-infra-wiki/99-maintenance/agent-handoff-vertical-depth.md)：下一阶段纵向加深的工作说明。
 
 ## 项目协议
 

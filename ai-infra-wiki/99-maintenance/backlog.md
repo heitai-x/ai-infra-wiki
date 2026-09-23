@@ -4,7 +4,7 @@ type: workflow
 topic: wiki
 level: all
 status: active
-last_updated: 2026-09-22
+last_updated: 2026-09-23
 owner: local
 reliability: high
 tags: [backlog, maintenance]
@@ -15,6 +15,7 @@ tags: [backlog, maintenance]
 ## 高优先级
 
 - 设计文档：[[99-maintenance/current-repository-gaps]] 与 [[99-maintenance/optimization-plan]]。
+- 纵向加深交接：[[99-maintenance/agent-handoff-vertical-depth]]。
 - 为每个 source card 增加更细的版本号和章节定位。
 - 已加入真实 `torchrun` DDP/FSDP 最小实验脚本；后续补 GPU raw artifacts。
 - 已加入 OpenAI-compatible vLLM/SGLang benchmark harness；后续补真实 server raw artifacts。

@@ -49,6 +49,12 @@ tags: [log, ingest, maintenance]
 - Updated the Wiki README with bundle, Prompt, Checklist and Checkpoint entry points.
 - Restored entity and skill index links and re-ran Wiki lint and index consistency checks.
 
+## [2026-09-23] handoff | Vertical Depth
+
+- Added `99-maintenance/agent-handoff-vertical-depth.md`.
+- Defined the next learning spine from safe softmax and normalization through MHA, GQA, KV Cache and serving.
+- Recorded the current IDE code entry points, proposed content pages, experiments, bundle, checklist and acceptance criteria.
+
 ## [2026-06-29] lint | Build Boundary Cleanup
 
 - Added config-driven ignore rules for transient folders such as `.ipynb_checkpoints`.
